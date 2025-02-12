@@ -11,6 +11,19 @@
 <body>
     <nav>
         <div class="logo">
+            <svg class="logo-svg" width="50" height="50" viewBox="0 0 50 50">
+                <!-- Modern hexagonal background -->
+                <polygon class="logo-hex" points="25,2 45,13.5 45,36.5 25,48 5,36.5 5,13.5" fill="none" stroke="#b19cd9" stroke-width="2"/>
+                
+                <!-- Animated lines -->
+                <line class="logo-line" x1="15" y1="25" x2="35" y2="25" stroke="#b19cd9" stroke-width="2"/>
+                <line class="logo-line" x1="25" y1="15" x2="25" y2="35" stroke="#b19cd9" stroke-width="2"/>
+                
+                <!-- PM text with modern font -->
+                <text x="25" y="28" text-anchor="middle" class="logo-text">PM</text>
+            </svg>
+            <span class="logo-text-full">Productivity<span class="accent">Manager</span></span>
+        </div>
         <ul class="nav-links">
             <li><a href="#dashboard">Dashboard</a></li>
             <li><a href="#tasks">My Tasks</a></li>
