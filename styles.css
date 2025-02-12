@@ -128,6 +128,7 @@ nav {
     transition-delay: calc(var(--card-index) * 0.1s);
     margin-bottom: 2rem;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    
 }
 
 .feature-card.visible {
@@ -144,8 +145,10 @@ nav {
 .feature-image {
     width: 100%;
     height: 200px;
+    object-fit: contain;
     overflow: hidden;
 }
+
 
 .feature-image img {
     width: 100%;
