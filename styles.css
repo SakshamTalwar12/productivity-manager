@@ -226,15 +226,15 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .hero {
+    .topic {
         margin: 0 2rem;
     }
 
-    .hero-content h1 {
+    .topic-content h1 {
         font-size: 4rem;
     }
     
-    .hero-content p {
+    .topic-content p {
         font-size: 1.2rem;
     }
 
