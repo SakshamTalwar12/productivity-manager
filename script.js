@@ -1,36 +1,56 @@
-$(document).ready(function() {
-    // Set up scroll animations for sections
+$(window).on("load", function() {
+    // Ensure page starts at the top
+    history.scrollRestoration = "manual";
+    $(window).scrollTop(0);
+    
+    // Remove focus from any interactive elements
+    $("input, button, textarea").blur();
+
+    // Scroll animation for the about section
+    const aboutCards = $(".about-card");
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                $(entry.target).addClass("visible");
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: "0px 0px -50px 0px"
+    });
+
+    aboutCards.each(function() {
+        observer.observe(this);
+    });
+
+    // Scroll animations for other sections
     const sections = $('.features-section, .additional-features');
     const featureCards = $('.feature-card');
-    
+
     // Set card index for staggered animations
     featureCards.each(function(index) {
         $(this).css('--card-index', index);
     });
 
-    const observer = new IntersectionObserver((entries) => {
+    const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 $(entry.target).addClass('visible');
                 
-                // If it's a section, animate its cards
-                if ($(entry.target).hasClass('features-section') || 
-                    $(entry.target).hasClass('additional-features')) {
-                    $(entry.target).find('.feature-card').each(function(index) {
-                        setTimeout(() => {
-                            $(this).addClass('visible');
-                        }, index * 100);  // Stagger the card animations
-                    });
-                }
+                // Animate feature cards inside the sections
+                $(entry.target).find('.feature-card').each(function(index) {
+                    setTimeout(() => {
+                        $(this).addClass('visible');
+                    }, index * 100);
+                });
             }
         });
     }, {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: "0px 0px -50px 0px"
     });
 
-    // Observe sections and cards
     sections.each(function() {
-        observer.observe(this);
+        sectionObserver.observe(this);
     });
-}); 
+});
