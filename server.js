@@ -13,12 +13,17 @@ app.use(express.static('public'));
 
 // Route for the main page
 app.get('/', (req, res) => {
-    res.sendFile((__dirname, '/public/index.html'));
+    res.sendFile((__dirname, '/public/about.html'));
 });
 
 app.get('/about', (req, res)=>{
-    res.sendFile((__dirname, '/public/about.html'));
+    res.sendFile(join(__dirname, 'public', 'about.html'));
 });
+
+app.get('/dashboard', (req, res) => {
+    res.sendFile(join(__dirname, 'public', 'dashboard.html'));
+});
+
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
