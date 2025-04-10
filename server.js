@@ -13,15 +13,15 @@ app.use(express.static('public'));
 
 // Route for the main page
 app.get('/', (req, res) => {
-    res.sendFile((__dirname, '/public/about.html'));
+    res.sendFile(join(__dirname, 'public', 'html', 'index.html'));
 });
 
 app.get('/about', (req, res)=>{
-    res.sendFile(join(__dirname, 'public', 'about.html'));
+    res.sendFile(join(__dirname, 'public', 'html', 'about.html'));
 });
 
 app.get('/dashboard', (req, res) => {
-    res.sendFile(join(__dirname, 'public', 'dashboard.html'));
+    res.sendFile(join(__dirname, 'public', 'html', 'dashboard.html'));
 });
 
 app.listen(port, () => {
